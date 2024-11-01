@@ -1,21 +1,13 @@
-The content below is an example project proposal / requirements document. Replace the text below the lines marked "__TODO__" with details specific to your project. Remove the "TODO" lines.
-
-(__TODO__: your project name)
-
 # Julian's Magic 8 Ball Of Knowledge
 
 ## Overview
 
-(__TODO__: a brief one or two paragraph, high-level description of your project)
-
-We've all had times when we had to read long segments of text and understand them quickkly, as well as determine their accuracy. While many solutions to summarize text are appearing these days, none simultaneously assess the validity of those texts and proivide guidance for how they should be rehgarded.
+We've all had times when we had to read long segments of text and understand them quickly. Additionally, we all have read things and done a double take at what we couldnt believe was real (we all have to be exdperts to assess whats accurate or not in todays data-filled world) While many solutions to summarize text are appearing these days, none simultaneously assess the validity of those texts and proivide guidance for how they should be rehgarded.
 
 Enter Julian's Maghic 8 Ball Of Knowledge. This webapp will help users interpret large amounts of text and verify the accuracy of that information. This application will utilize the OpenAI API to interpret and summarize long text inputs, and will fact check them before providing the analysis to the user. User's will be able to see their past queries and refer to the fact checking.
 
 
 ## Data Model
-
-(__TODO__: a description of your application's data and their relationships to each other) 
 
 The application will store Users and Queries
 
@@ -24,7 +16,7 @@ The application will store Users and Queries
 
 (__TODO__: sample documents)
 
-An Example User:
+Example User:
 
 ```javascript
 {
@@ -38,7 +30,7 @@ An Example User:
 }
 ```
 
-An Example List with Embedded Items:
+Example Query with user, original text, summary, and fact checking:
 
 ```javascript
 {
@@ -64,14 +56,9 @@ An Example List with Embedded Items:
 }
 ```
 
-
 ## [Link to Commented First Draft Schema](db.mjs) 
 
-(__TODO__: create a first draft of your Schemas in db.mjs and link to it)
-
 ## Wireframes
-
-(__TODO__: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc.)
 
 /login - a page for registering for the site or logging in
 
@@ -95,13 +82,9 @@ An Example List with Embedded Items:
 
 ## Site map
 
-(__TODO__: draw out a site map that shows how pages are related to each other)
-
-![list create](sitemap/map.png)
+![Sitemap](sitemap/map.png)
 
 ## User Stories or Use Cases
-
-(__TODO__: write out how your application will be used through [user stories](http://en.wikipedia.org/wiki/User_story#Format) and / or [use cases](https://en.wikipedia.org/wiki/Use_case))
 
 1. as non-registered user, I can register a new account with the site
 2. as a user, I can log in to the site
@@ -113,13 +96,12 @@ An Example List with Embedded Items:
 
 ## Research Topics
 
-(__TODO__: the research topics that you're planning on working on along with their point values... and the total points of research topics listed)
-
 * (6 points) React
-    * I'm going to use React to implement UI that allows for dynamic response to user input
-    * React wukk serve as the front-end while express handles the back-end API, authentication, and database usage
-    * React Router will allow users to navigate pages without fully reloading them
+  * I'm going to use React to implement UI that allows for dynamic response to user input
+  * React will serve as the front-end while express handles the back-end API, authentication, and database usage
+  * React Router will allow users to navigate pages without fully reloading them
 * (2 points) OpenAI API Integration
+  * OpenAI's API allows users to make calls to OpenAI LLM models directly from their programs
   * I am going to use OpenAI's API to handle the summarizing of user input and fact checking said input
 * (2 points) Sass / Tailwind CSS (I'm undecided as to which I want to use)
   * I am going to use Sass or Tailwind CSS to make the CSS styling of my site more advanced
@@ -129,11 +111,8 @@ An Example List with Embedded Items:
 
 ## [Link to Initial Main Project File](app.mjs) 
 
-(__TODO__: create a skeleton Express application with a package.json, app.mjs, views folder, etc. ... and link to your initial app.mjs)
 
 ## Annotations / References Used
-
-(__TODO__: list any tutorials/references/etc. that you've based your code off of)
 
 1. [Sass Guide](https://sass-lang.com/guide/) - (code will be linked if/when implemented)
 2. [React tutorial for beginners](https://www.youtube.com/watch?v=w7ejDZ8SWv8) - (code will be linked if/when implemented)
