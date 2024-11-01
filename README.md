@@ -135,6 +135,8 @@ An Example List with Embedded Items:
 
 (__TODO__: list any tutorials/references/etc. that you've based your code off of)
 
-1. [passport.js authentication docs](http://passportjs.org/docs) - (add link to source code that was based on this)
-2. [tutorial on vue.js](https://vuejs.org/v2/guide/) - (add link to source code that was based on this)
-
+1. [Sass Guide](https://sass-lang.com/guide/) - (code will be linked if/when implemented)
+2. [React tutorial for beginners](https://www.youtube.com/watch?v=w7ejDZ8SWv8) - (code will be linked if/when implemented)
+3. [Tailwind docs](https://tailwindcss.com/docs) - (code will be linked if/when implemented)
+4. [OpenAI Node API Library](https://github.com/openai/openai-node) - (Code will be linked when implemented)
+5. [OpenAI API Guide](https://platform.openai.com/docs/quickstart) - (Code will be linked when implemented)
