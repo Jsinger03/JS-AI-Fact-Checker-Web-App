@@ -83,7 +83,7 @@ An Example List with Embedded Items:
 
 /results - a page to display the result of the text processing
 
-![list](wireframe/results.png)
+![list](wireframe/result.png)
 
 /history - a page for users to see a list of their past queries and select one to view the results of, or delete the entry for
 
