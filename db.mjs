@@ -11,6 +11,7 @@ const UserSchema = new mongoose.Schema({
 const QuerySchema = new mongoose.Schema({
     user:{ type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     originalText:{ type: String, required: true },
+    sourceURL: {type: String, required: false},
     summary:{ type: String },
     factCheckResult: [{
       textSegment: String,
@@ -18,5 +19,6 @@ const QuerySchema = new mongoose.Schema({
       startIndex:  Number,
       endIndex:    Number,
     }],
+    accuracyScore: {type: Number, required: true},
     createdAt:{ type: Date, default: Date.now },
   });

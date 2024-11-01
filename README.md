@@ -12,7 +12,8 @@ Enter Julian's Maghic 8 Ball Of Knowledge. This webapp will help users interpret
 The application will store Users and Queries
 
 * Users will have account information and a list of their queries
-* Queries will have the original text, summary, fact-checked text, date of creation, and user
+* Queries will have the original text, summary, fact-checked text, date of creation, user, and qualitatuve score of accuracy.
+* Queries will optionally have a url if the user chose to fact check an article from the web
 
 (__TODO__: sample documents)
 
@@ -52,6 +53,7 @@ Example Query with user, original text, summary, and fact checking:
       "endIndex": 73
     }
   ],
+  "accuracyScore":30,
   "createdAt": ISODate("2023-11-01T12:00:00Z")
 }
 ```
@@ -93,6 +95,7 @@ Example Query with user, original text, summary, and fact checking:
 5. as a user, I can review in detail a past query
 6. as a user, I can delete a past query
 7. as a user, I can change my username, email, or password
+8. as a user, I can submit a url for an article I would like to fact check
 
 ## Research Topics
 
@@ -106,8 +109,14 @@ Example Query with user, original text, summary, and fact checking:
 * (2 points) Sass / Tailwind CSS (I'm undecided as to which I want to use)
   * I am going to use Sass or Tailwind CSS to make the CSS styling of my site more advanced
   * Leaning towards Tailwind as it will allow me to handle styling within the HTML files 
+* (5 points) Server-side web scraping
+  * In order to allow user's to submit urls for articles to be fact checked, I need to scrape the content
+  * I will use Axios to get the content from the url
+  * I will use readability from Mozilla's Readability library to parse the extracted html and find the article content
+  * I will have to verify user inptu and validate it, as well as handle issues like when the site doesnt allow scraping
 
-10 points out of 10 required points
+
+15 points out of 10 required points
 
 ## [Link to Initial Main Project File](app.mjs) 
 
@@ -119,3 +128,6 @@ Example Query with user, original text, summary, and fact checking:
 3. [Tailwind docs](https://tailwindcss.com/docs) - (code will be linked if/when implemented)
 4. [OpenAI Node API Library](https://github.com/openai/openai-node) - (Code will be linked when implemented)
 5. [OpenAI API Guide](https://platform.openai.com/docs/quickstart) - (Code will be linked when implemented)
+6. [Axios Guide](https://axios-http.com/docs/intro)
+7. [Axios Crash Course](https://www.youtube.com/watch?v=6LyagkoRWYA)
+8. [Readability](https://www.npmjs.com/package/@mozilla/readability)
