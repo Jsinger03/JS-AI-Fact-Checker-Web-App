@@ -2,25 +2,25 @@ The content below is an example project proposal / requirements document. Replac
 
 (__TODO__: your project name)
 
-# Shoppy Shoperson 
+# Julian's Magic 8 Ball Of Knowledge
 
 ## Overview
 
 (__TODO__: a brief one or two paragraph, high-level description of your project)
 
-Remembering what to buy at the grocery store is waaaaay too difficult. Also, shopping for groceries when you're hungry leads to regrettable purchases. Sooo... that's where Shoppy Shoperson comes in!
+We've all had times when we had to read long segments of text and understand them quickkly, as well as determine their accuracy. While many solutions to summarize text are appearing these days, none simultaneously assess the validity of those texts and proivide guidance for how they should be rehgarded.
 
-Shoppy Shoperson is a web app that will allow users to keep track of multiple grocery lists. Users can register and login. Once they're logged in, they can create or view their grocery list. For every list that they have, they can add items to the list or cross off items.
+Enter Julian's Maghic 8 Ball Of Knowledge. This webapp will help users interpret large amounts of text and verify the accuracy of that information. This application will utilize the OpenAI API to interpret and summarize long text inputs, and will fact check them before providing the analysis to the user. User's will be able to see their past queries and refer to the fact checking.
 
 
 ## Data Model
 
 (__TODO__: a description of your application's data and their relationships to each other) 
 
-The application will store Users, Lists and Items
+The application will store Users and Queries
 
-* users can have multiple lists (via references)
-* each list can have multiple items (by embedding)
+* Users will have account information and a list of their queries
+* Queries will have the original text, summary, fact-checked text, date of creation, and user
 
 (__TODO__: sample documents)
 
@@ -28,9 +28,13 @@ An Example User:
 
 ```javascript
 {
-  username: "shannonshopper",
-  hash: // a password hash,
-  lists: // an array of references to List documents
+  "_id": ObjectId("615c1b8e8f1b2c6f9d3a4e2a"),
+  "username": "jsinger03",
+  "email": "jsinger03@gmail.com",
+  "password": "$2b$10$abc123hashedpasswordexample",
+  "queries": [
+    ObjectId("615c1b9f8f1b2c6f9d3a4e2b")
+  ]
 }
 ```
 
@@ -38,13 +42,25 @@ An Example List with Embedded Items:
 
 ```javascript
 {
-  user: // a reference to a User object
-  name: "Breakfast foods",
-  items: [
-    { name: "pancakes", quantity: "9876", checked: false},
-    { name: "ramen", quantity: "2", checked: true},
+  "_id": ObjectId("615c1b9f8f1b2c6f9d3a4e2b"),
+  "user": ObjectId("615c1b8e8f1b2c6f9d3a4e2a"), //jsinger03
+  "originalText": "The Eiffel Tower was constructed in 1856 and is located in Berlin. It stands at 1,063 feet tall and was the world's tallest structure until 1930.",
+  "summary": "The Eiffel Tower, built in 1887 in Paris, is 1,063 feet tall and was the world's tallest structure until 1930.",
+  "factCheckResult": [
+    {
+      "textSegment": "constructed in 1856",
+      "suggestion": "The Eiffel Tower was constructed between 1887 and 1889.",
+      "startIndex": 25,
+      "endIndex": 43
+    },
+    {
+      "textSegment": "located in Berlin",
+      "suggestion": "The Eiffel Tower is located in Paris.",
+      "startIndex": 57,
+      "endIndex": 73
+    }
   ],
-  createdAt: // timestamp
+  "createdAt": ISODate("2023-11-01T12:00:00Z")
 }
 ```
 
@@ -57,23 +73,31 @@ An Example List with Embedded Items:
 
 (__TODO__: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc.)
 
-/list/create - page for creating a new shopping list
+/login - a page for registering for the site or logging in
 
-![list create](documentation/list-create.png)
+![list create](wireframe/register.png)
 
-/list - page for showing all shopping lists
+/dashboard - the main page where users can navigate to their profile or history, and can submit text for processing
 
-![list](documentation/list.png)
+![list](wireframe/dashboard.png)
 
-/list/slug - page for showing specific shopping list
+/results - a page to display the result of the text processing
 
-![list](documentation/list-slug.png)
+![list](wireframe/results.png)
+
+/history - a page for users to see a list of their past queries and select one to view the results of, or delete the entry for
+
+![list](wireframe/history.png)
+
+/profile - a page for users to modify their username and email, and to change their password
+
+![list](wireframe/profile.png)
 
 ## Site map
 
 (__TODO__: draw out a site map that shows how pages are related to each other)
 
-Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia/commons/2/20/Sitemap_google.jpg), but you can create one without the screenshots, drop shadows, etc. ... just names of pages and where they flow to.
+![list create](sitemap/map.png)
 
 ## User Stories or Use Cases
 
@@ -81,28 +105,27 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 
 1. as non-registered user, I can register a new account with the site
 2. as a user, I can log in to the site
-3. as a user, I can create a new grocery list
-4. as a user, I can view all of the grocery lists I've created in a single list
-5. as a user, I can add items to an existing grocery list
-6. as a user, I can cross off items in an existing grocery list
+3. as a user, I can submit a text prompt to the site and view its summary and fact-checking
+4. as a user, I can view all of my past queries
+5. as a user, I can review in detail a past query
+6. as a user, I can delete a past query
+7. as a user, I can change my username, email, or password
 
 ## Research Topics
 
 (__TODO__: the research topics that you're planning on working on along with their point values... and the total points of research topics listed)
 
-* (5 points) Integrate user authentication
-    * I'm going to be using passport for user authentication
-    * And account has been made for testing; I'll email you the password
-    * see <code>cs.nyu.edu/~jversoza/ait-final/register</code> for register page
-    * see <code>cs.nyu.edu/~jversoza/ait-final/login</code> for login page
-* (4 points) Perform client side form validation using a JavaScript library
-    * see <code>cs.nyu.edu/~jversoza/ait-final/my-form</code>
-    * if you put in a number that's greater than 5, an error message will appear in the dom
-* (5 points) vue.js
-    * used vue.js as the frontend framework; it's a challenging library to learn, so I've assigned it 5 points
+* (6 points) React
+    * I'm going to use React to implement UI that allows for dynamic response to user input
+    * React wukk serve as the front-end while express handles the back-end API, authentication, and database usage
+    * React Router will allow users to navigate pages without fully reloading them
+* (2 points) OpenAI API Integration
+  * I am going to use OpenAI's API to handle the summarizing of user input and fact checking said input
+* (2 points) Sass / Tailwind CSS (I'm undecided as to which I want to use)
+  * I am going to use Sass or Tailwind CSS to make the CSS styling of my site more advanced
+  * Leaning towards Tailwind as it will allow me to handle styling within the HTML files 
 
-10 points total out of 8 required points (___TODO__: addtional points will __not__ count for extra credit)
-
+10 points out of 10 required points
 
 ## [Link to Initial Main Project File](app.mjs) 
 
