@@ -18,5 +18,10 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
     res.render('dashboard');//currently just a skeleton
 })
-
+app.get('/history', (req, res) => {
+    res.render('history');
+})
+app.get('/profile', (req, res) => {
+    res.render('profile');
+})
 app.listen(process.env.PORT ?? 3000);
