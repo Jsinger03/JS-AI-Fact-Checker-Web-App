@@ -2,7 +2,7 @@
 
 ## Overview
 
-We've all had times when we had to read long segments of text and understand them quickly. Additionally, we all have read things and done a double take at what we couldnt believe was real (we all have to be exdperts to assess whats accurate or not in todays data-filled world) While many solutions to summarize text are appearing these days, none simultaneously assess the validity of those texts and proivide guidance for how they should be rehgarded.
+We've all had times when we had to read long segments of text and understand them quickly. Additionally, we have to assess the accuracy of much of what we read online these days. While many solutions to summarize text are appearing these days, none simultaneously assess the validity of those texts and proivide guidance for how they should be regarded.
 
 Enter Julian's Maghic 8 Ball Of Knowledge. This webapp will help users interpret large amounts of text and verify the accuracy of that information. This application will utilize the OpenAI API to interpret and summarize long text inputs, and will fact check them before providing the analysis to the user. User's will be able to see their past queries and refer to the fact checking.
 
