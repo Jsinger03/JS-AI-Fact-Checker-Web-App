@@ -16,7 +16,13 @@ app.use((req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-    res.render('dashboard');//currently just a skeleton
+    res.render('login');//currently just a skeleton
+})
+app.get('/register', (req, res) => {
+    res.render('register');
+})
+app.get('/dashboard', (req, res) => {
+    res.render('dashboard');
 })
 app.get('/history', (req, res) => {
     res.render('history');
