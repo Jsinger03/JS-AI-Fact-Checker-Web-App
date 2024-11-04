@@ -22,3 +22,4 @@ const QuerySchema = new mongoose.Schema({
     accuracyScore: {type: Number, required: true},
     createdAt:{ type: Date, default: Date.now },
   });
+
