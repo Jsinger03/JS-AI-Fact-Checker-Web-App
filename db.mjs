@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import './config.mjs'
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.DSN);
 
 //schema to define a user
 const UserSchema = new mongoose.Schema({
