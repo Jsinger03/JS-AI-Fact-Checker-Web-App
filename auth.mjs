@@ -33,4 +33,8 @@ const auth = async (req, res) => {
     }
     return user;
 }
+//const changePassword = async (req, res) => {
+
+
+
 export {register, auth};

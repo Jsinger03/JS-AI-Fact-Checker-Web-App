@@ -56,4 +56,11 @@ app.get('/history', (req, res) => {
 app.get('/profile', (req, res) => {
     res.render('profile');
 })
+app.post('/profile', (req, res) => {
+    
+});
+
+app.get('/results', (req, res) => {
+    res.render('results');
+});
 app.listen(process.env.PORT ?? 3000);
