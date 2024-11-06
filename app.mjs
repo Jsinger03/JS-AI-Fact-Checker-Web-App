@@ -3,7 +3,7 @@ import path from 'path'
 import { fileURLToPath } from 'url';
 import mongoose from 'mongoose';
 import './db.mjs';
-
+import {register, auth} from './auth.mjs';
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -35,6 +35,7 @@ app.post('/', async(req,res) =>{
 })
 //register stuff
 app.get('/register', (req, res) => {
+    register(req, res, next);
     res.render('register');
 })
 app.post('/register', async(req,res) =>{
