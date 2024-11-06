@@ -1,3 +1,7 @@
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
+mongoose.connect(process.env.MONGO_URI);
 
 //schema to define a user
 const UserSchema = new mongoose.Schema({
@@ -22,4 +26,7 @@ const QuerySchema = new mongoose.Schema({
     accuracyScore: {type: Number, required: true},
     createdAt:{ type: Date, default: Date.now },
   });
+
+mongoose.model('User', UserSchema);
+mongoose.model('Query', QuerySchema);
 

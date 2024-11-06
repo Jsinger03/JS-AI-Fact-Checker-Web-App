@@ -19,8 +19,8 @@ app.use((req, res, next) => {
 })
 
 //mongoose stuff
-const User = mongoose.model('User', UserSchema);
-const Query = mongoose.model('Query', QuerySchema);
+const User = mongoose.model('User');
+const Query = mongoose.model('Query');
 
 //login stuff
 
@@ -31,16 +31,19 @@ app.get('/', (req, res) => {
 app.post('/', async(req,res) =>{
     //const user = await
     //need to implement auth.mjs first
+    const user = await auth(req, res);
     res.redirect('/dashboard');
 })
 //register stuff
 app.get('/register', (req, res) => {
-    register(req, res, next);
     res.render('register');
 })
 app.post('/register', async(req,res) =>{
     //const newUser = await
     //need to implement auth.mjs first
+    register(req, res);
+    res.redirect('/dashboard');
+
 })
 app.get('/dashboard', (req, res) => {
     res.render('dashboard');
