@@ -4,6 +4,8 @@ import { fileURLToPath } from 'url';
 import mongoose from 'mongoose';
 import './db.mjs';
 import {register, auth} from './auth.mjs';
+import './config.mjs';
+
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

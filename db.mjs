@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-dotenv.config();
+import './config.mjs'
 mongoose.connect(process.env.MONGO_URI);
 
 //schema to define a user
