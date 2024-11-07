@@ -62,6 +62,10 @@ app.post('/register', async(req,res) =>{
 app.get('/api/dashboard', (req, res) => {
     res.json({message:"HIIII"})
 })
+app.post('/api/dashboard', (req, res) => {
+    res.json({message:"HIIII"})
+    //needs logic for sending the input to the OpenAI API
+})
 app.get('/api/history', (req, res) => {
     res.json({message:"HIIII"})
 })

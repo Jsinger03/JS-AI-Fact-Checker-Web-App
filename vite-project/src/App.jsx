@@ -3,7 +3,7 @@ import Login from './Login';
 import Dashboard from './Dashboard';
 import Profile from './Profile';
 import Register from './Register';
-//import Results from './Results';
+import Results from './Results';
 import React, { Fragment, useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
@@ -37,6 +37,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard username="js"/>} />
         <Route path="/history" element={<History/>} />
         <Route path="/profile" element={<Profile/>} />
+        <Route path="/results" element={<Results />} />
       </Routes>
     </Router>
     </Fragment>

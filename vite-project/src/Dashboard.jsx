@@ -1,25 +1,21 @@
-// vite-project/src/Dashboard.jsx
+// src/components/Dashboard.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Navbar from './Navbar';
 
 function Dashboard({ username }) {
   const [inputType, setInputType] = useState('link');
   const [inputValue, setInputValue] = useState('');
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    // Implement logout logic here, e.g., clearing tokens, etc.
-    navigate('/');
+  const handleSubmit = () => {
+    // Implement any logic needed before navigating
+    navigate('/results');
   };
 
   return (
     <div>
-      <nav style={{ display: 'flex', justifyContent: 'space-around', padding: '10px', background: '#f0f0f0' }}>
-        <a href="/">Home</a>
-        <a href="/history">History</a>
-        <a href="/profile">Profile</a>
-        <button onClick={handleLogout}>Logout</button>
-      </nav>
+      <Navbar />
       <h1>Dashboard</h1>
       <h2>Welcome, {username}</h2>
       <p>This is your dashboard</p>
@@ -61,6 +57,10 @@ function Dashboard({ username }) {
           style={{ width: '300px', height: '100px', margin: '10px 0' }}
         />
       )}
+
+      <button onClick={handleSubmit} style={{ display: 'block', marginTop: '10px' }}>
+        Submit
+      </button>
     </div>
   );
 }
