@@ -26,10 +26,12 @@ const auth = async (req, res) => {
     const user = await User.findOne({username});
     if (!user){
         console.log("USERNAME NOT FOUND")
+        return false;
     }
     const match = await bcryptjs.compare(password, user.password);
     if (!match){
         console.log("PASSWORD DOES NOT MATCH")
+        return false;
     }
     return user;
 }

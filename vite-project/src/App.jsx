@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import History from './History';
+import Login from './Login';
+import Dashboard from './Dashboard';
+import Profile from './Profile';
+import Register from './Register';
+//import Results from './Results';
+import React, { Fragment, useEffect, useState } from 'react';
+import axios from 'axios';
+import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+const API = import.meta.env.VITE_BACKEND_URL;
 
-function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+const apiCall = async () => {
+  try{
+    const response = await fetch(`${API}/api/queries`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ text: inputText }),
+    });
+  } catch (error) {
+    console.error('There was an error fetching the data!', error);
+  }
 }
 
-export default App
+function App() {
+  return (
+    <Fragment>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login/>} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Register/>} />
+        <Route path="/dashboard" element={<Dashboard username="js"/>} />
+        <Route path="/history" element={<History/>} />
+        <Route path="/profile" element={<Profile/>} />
+      </Routes>
+    </Router>
+    </Fragment>
+  );
+}
+export default App;
