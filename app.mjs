@@ -62,22 +62,19 @@ app.post('/register', async(req,res) =>{
 app.get('/api/dashboard', (req, res) => {
     res.json({message:"HIIII"})
 })
-app.get('/history', (req, res) => {
-    res.render('history');
+app.get('/api/history', (req, res) => {
+    res.json({message:"HIIII"})
 })
-app.get('/profile', (req, res) => {
-    res.render('profile');
+app.get('/api/profile', (req, res) => {
+    res.json({message:"HIIII"})
 })
-app.post('/profile', (req, res) => {
-    
+app.post('/api/profile', (req, res) => {
+    res.json({message:"HIIII"})
 });
 
-app.get('/results', (req, res) => {
-    res.render('results');
+app.get('/api/results', (req, res) => {
+    res.json({message:"HIIII"})
 });
-app.get('/api/data', (req, res) => {
-    res.json({ message: 'Hello from the server!' });
-  });
   // Catch-all handler to serve React's index.html for any other routes
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'vite-project/dist', 'index.html'));
