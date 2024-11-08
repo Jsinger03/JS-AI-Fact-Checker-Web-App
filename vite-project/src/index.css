@@ -66,3 +66,18 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+body .text-box {
+  background-color: orange;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 1em;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body .text-box:focus {
+  outline: none;
+  border-color: #646cff;
+  box-shadow: 0 0 5px rgba(100, 108, 255, 0.5);
+}

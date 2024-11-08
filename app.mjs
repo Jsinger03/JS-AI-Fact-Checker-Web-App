@@ -64,7 +64,7 @@ app.post('/api/register', async(req,res) =>{
     const user = await register(req, res);
     console.log(user);
     if (user) {
-        res.json({ success: true, message: 'Account created successfully' });
+        res.json({ success: true, message: 'Account created successfully', userId: user._id });
         console.log("Account created successfully");
     } else {
         res.status(401).json({ success: false, message: 'Account creation failed' });

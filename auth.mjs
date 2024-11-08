@@ -7,19 +7,32 @@ const Query = mongoose.model('Query');
 
 const salt = await bcryptjs.genSalt(10);
 const register = async (req, res) => {
-    const {username, email, password, ConfirmPassword} = req.body;
-    const hashedPassword = await bcryptjs.hash(password, salt);
-    const confirmPassword = await bcryptjs.hash(ConfirmPassword, salt);
-    if (password !== confirmPassword){
-        console.log("PASSWORDS DO NOT MATCH")
+    try {
+        const { username, email, password, confirmPassword } = req.body;
+
+        // Check if passwords match
+        if (password !== confirmPassword) {
+            console.log("PASSWORDS DO NOT MATCH");
+            return false;
+            // return res.status(400).json({ message: "Passwords do not match" });
+        }
+
+        // Check if username or email already exists
+        const existingUser = await User.findOne({ $or: [{ username }, { email }] });
+        if (existingUser) {
+            console.log("Username or email already exists");
+            return false;
+            // return res.status(400).json({ message: "Username or email already exists" });
+        }
+        const hashedPassword = await bcryptjs.hash(password, salt);
+        const confirmedHashedPassword = await bcryptjs.hash(confirmPassword, salt);
+        const user = await User.create({username, email, password: hashedPassword});
+        await user.save();
+        return user;
+    } catch (error) {
+        console.error("Error during registration:", error);
+        return false;
     }
-    if (User.findOne({username})){
-        console.log("USERNAME ALREADY EXISTS")
-    }
-    if (User.findOne({email})){
-        console.log("An account with this email already exists. Please use another email")
-    }
-    const user = await User.create({username, email, password: hashedPassword});
 }
 const auth = async (req, res) => {
     const {username, password} = req.body;

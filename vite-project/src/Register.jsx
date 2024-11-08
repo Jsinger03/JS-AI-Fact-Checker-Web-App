@@ -25,8 +25,10 @@ function Register() {
             if (response.ok) {
                 setMessage('Registration successful!');
                 console.log('Registration successful:', result.message);
-                // Redirect to login page or dashboard
-                navigate('/login');
+                // Save userId to local storage
+                localStorage.setItem('userId', result.userId);
+                // Redirect to dashboard
+                navigate('/dashboard');
             } else {
                 setMessage(result.message);
                 console.error('Registration failed:', result.message);
