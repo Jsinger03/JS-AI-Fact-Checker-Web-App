@@ -1,5 +1,5 @@
 // src/components/Dashboard.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 
@@ -7,10 +7,39 @@ function Dashboard({ username }) {
   const [inputType, setInputType] = useState('link');
   const [inputValue, setInputValue] = useState('');
   const navigate = useNavigate();
+  const [userId, setUserId] = useState(null); // Define userId state
 
-  const handleSubmit = () => {
-    // Implement any logic needed before navigating
-    navigate('/results');
+  useEffect(() => {
+    const storedUserId = localStorage.getItem('userId');
+    if (storedUserId) {
+        setUserId(storedUserId);
+    } else {
+        navigate('/');
+    }
+}, [navigate]);
+  const handleSubmit = async () => {
+    try {
+        const response = await fetch('/api/dashboard', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                userId,
+                prompt: inputValue,
+            }),
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          console.log('Query submitted:', result.message);
+          navigate(`/results/${result.queryId}`); // Use the queryId from the response
+        } else {
+            console.error('Error submitting query:', result.message);
+        }
+      } catch (error) {
+          console.error('Error submitting query:', error);
+      }
   };
 
   return (

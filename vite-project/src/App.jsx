@@ -37,7 +37,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard username="js"/>} />
         <Route path="/history" element={<History/>} />
         <Route path="/profile" element={<Profile/>} />
-        <Route path="/results" element={<Results />} />
+        <Route path="/results/:queryId" element={<Results />} />
       </Routes>
     </Router>
     </Fragment>

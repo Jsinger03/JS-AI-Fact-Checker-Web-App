@@ -1,24 +1,97 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 
 function Profile() {
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
+
+    useEffect(() => {
+        // Fetch current user data to pre-fill the form
+        const fetchUserData = async () => {
+            const userId = localStorage.getItem('userId');
+            if (!userId) {
+                console.error('User ID not found');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/profile/${userId}`);
+                const data = await response.json();
+                setUsername(data.username);
+                setEmail(data.email);
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+            }
+        };
+
+        fetchUserData();
+    }, []);
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const userId = localStorage.getItem('userId');
+        if (!userId) {
+            console.error('User ID not found');
+            return;
+        }
+
+        try {
+            const response = await fetch(`/api/profile/${userId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, email, password }),
+            });
+
+            const result = await response.json();
+            setMessage(result.message);
+        } catch (error) {
+            console.error('Error updating profile:', error);
+            setMessage('An error occurred. Please try again.');
+        }
+    };
+
     return (
         <div>
             <Navbar />
             <h1>Profile</h1>
-            <form>
-                <label htmlFor="username">Username: jsinger03</label>
-                <input type="text" id="username" name="username" placeholder="new username" />
-                <button type="submit">Save</button>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="username">Username:</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="new username"
+                />
                 <br />
-                <label htmlFor="email">Email: jsinger03@gmail.com</label>
-                <input type="text" id="email" name="email" placeholder="new email" />
-                <button type="submit">Save</button>
+                <label htmlFor="email">Email:</label>
+                <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="new email"
+                />
                 <br />
-                <label htmlFor="password">Password: not gonna tell you</label>
-                <input type="password" id="password" name="password" placeholder="new password" />
+                <label htmlFor="password">Password:</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="new password"
+                />
+                <br />
                 <button type="submit">Save</button>
             </form>
+            {message && <p>{message}</p>}
         </div>
     );
 }
