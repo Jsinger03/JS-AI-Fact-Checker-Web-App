@@ -7,8 +7,9 @@ function Dashboard({ username }) {
   const [inputType, setInputType] = useState('link');
   const [inputValue, setInputValue] = useState('');
   const navigate = useNavigate();
-  const [userId, setUserId] = useState(null); // Define userId state
+  const [userId, setUserId] = useState(null);
 
+  //https://www.w3schools.com/react/react_useeffect.asp
   useEffect(() => {
     const storedUserId = localStorage.getItem('userId');
     if (storedUserId) {
@@ -18,6 +19,8 @@ function Dashboard({ username }) {
     }
 }, [navigate]);
   const handleSubmit = async () => {
+    //https://www.freecodecamp.org/news/how-to-fetch-api-data-in-react/
+    event.preventDefault();
     try {
         const response = await fetch('/api/dashboard', {
             method: 'POST',
@@ -33,7 +36,7 @@ function Dashboard({ username }) {
         const result = await response.json();
         if (response.ok) {
           console.log('Query submitted:', result.message);
-          navigate(`/results/${result.queryId}`); // Use the queryId from the response
+          navigate(`/results/${result.queryId}`);
         } else {
             console.error('Error submitting query:', result.message);
         }
@@ -48,48 +51,49 @@ function Dashboard({ username }) {
       <h1>Dashboard</h1>
       <h2>Welcome, {username}</h2>
       <p>This is your dashboard</p>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>
+            <input
+              type="radio"
+              value="link"
+              checked={inputType === 'link'}
+              onChange={() => setInputType('link')}
+            />
+            Link
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="text"
+              checked={inputType === 'text'}
+              onChange={() => setInputType('text')}
+            />
+            Text
+          </label>
+        </div>
 
-      <div>
-        <label>
+        {inputType === 'link' ? (
           <input
-            type="radio"
-            value="link"
-            checked={inputType === 'link'}
-            onChange={() => setInputType('link')}
+            type="url"
+            placeholder="Enter URL"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            style={{ width: '300px', margin: '10px 0' }}
           />
-          Link
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="text"
-            checked={inputType === 'text'}
-            onChange={() => setInputType('text')}
+        ) : (
+          <textarea
+            placeholder="Enter text"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            style={{ width: '300px', height: '100px', margin: '10px 0' }}
           />
-          Text
-        </label>
-      </div>
+        )}
 
-      {inputType === 'link' ? (
-        <input
-          type="url"
-          placeholder="Enter URL"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          style={{ width: '300px', margin: '10px 0' }}
-        />
-      ) : (
-        <textarea
-          placeholder="Enter text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          style={{ width: '300px', height: '100px', margin: '10px 0' }}
-        />
-      )}
-
-      <button onClick={handleSubmit} style={{ display: 'block', marginTop: '10px' }}>
-        Submit
-      </button>
+        <button type="submit" style={{ display: 'block', marginTop: '10px' }}>
+          Submit
+        </button>
+      </form>
     </div>
   );
 }

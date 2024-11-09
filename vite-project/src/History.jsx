@@ -4,8 +4,9 @@ import HistoryTable from './HistoryTable';
 
 function History() {
     const [queries, setQueries] = useState([]);
-
+    //https://www.w3schools.com/react/react_useeffect.asp - reference for useEffect
     useEffect(() => {
+        //https://www.freecodecamp.org/news/how-to-fetch-api-data-in-react/
         const fetchQueries = async () => {
             const userId = localStorage.getItem('userId');
             if (!userId) {

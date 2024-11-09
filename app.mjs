@@ -15,17 +15,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 //middleware
-app.use(cors())//to allow for react axios api handling
+app.use(cors())//to allow for react axios api handling --> now using fetch, but will use axios later for url submissions
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-//app.set('view engine', 'hbs');
-// app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'vite-project/dist')));
 // app.use(session({
 //     secret: 'your-secret-key',
 //     resave: false,
 //     saveUninitialized: true,
-//     cookie: { secure: false } // Set to true if using HTTPS
+//     cookie: { secure: true }//true since using https
 // }));
 app.use((req, res, next) => {
     console.log(req.method, req.path, req.body);
@@ -41,11 +39,9 @@ app.use((req, res, next) => {
 const User = mongoose.model('User');
 const Query = mongoose.model('Query');
 
-//login stuff
-
+//routes
 
 app.get('/', (req, res) => {
-    //res.render('login');
     res.json({message:"HIIII"})
 })
 app.post('/api/login', async (req, res) => {
@@ -58,7 +54,6 @@ app.post('/api/login', async (req, res) => {
         console.log("Invalid credentials");
     }
 });
-//register stuff
 
 app.post('/api/register', async(req,res) =>{
     const user = await register(req, res);
@@ -72,6 +67,7 @@ app.post('/api/register', async(req,res) =>{
     }
 
 })
+
 app.get('/api/dashboard', (req, res) => {
     res.json({message:"HIIII"})
 })
@@ -84,9 +80,10 @@ app.post('/api/dashboard', async (req, res) => {
         res.status(500).json({ message: 'Internal server error' });
     }
 });
-app.get('/api/history', (req, res) => {
-    res.json({message:"HIIII"})
-})
+
+// app.get('/api/history', (req, res) => {
+//     res.json({message:"HIIII"})
+// })
 app.get('/api/history/:userId', async (req, res) => {
     try {
         const userId = req.params.userId;
@@ -97,6 +94,8 @@ app.get('/api/history/:userId', async (req, res) => {
         res.status(500).json({ message: 'Internal server error' });
     }
 });
+
+
 app.get('/api/profile', (req, res) => {
     res.json({message:"HIIII"})
 })
@@ -119,6 +118,7 @@ app.get('/api/results/:queryId', async (req, res) => {
     }
 });
 
+//https://www.geeksforgeeks.org/express-js-app-put-function/
 app.put('/api/profile/:userId', async (req, res) => {
     try {
         const userId = req.params.userId;

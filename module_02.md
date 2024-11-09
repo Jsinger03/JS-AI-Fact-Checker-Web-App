@@ -6,34 +6,48 @@
 
 ## Special Instructions for Using Form and / or Login
 
-(TODO: if your app requires special instructions to use or if your app requires authentication, add information here; otherwise, leave blank)
-Please register an account, and remember your login information to login in the future
+Please register an account, and remember your login information to login in the future. You will be redirected to the login page upon successful account creation.
+
+In order to see the results form, you must submit a query from the dashboard. Upon successful analysis by the OpenAI API (please allow a few seconds), you will be redirected to the results page for that query. You may view past queries from your history page, and can click in to see the results page for each query in your history
 
 ## URL for deployed site
 
-[Deployed Server Link](http://linserv1.cims.nyu.edu:30003)
+[Deployed Server Link](https://linserv1.cims.nyu.edu:50003)
 
 ## URL for form
 
 (TODO: add link to a functioning form)
-Form 1: Login
-Form 2: OpenAI API call in the dashboard
+[Register](https://linserv1.cims.nyu.edu:50003/register) - make account, will be redirected to login upon successful creation
+[Login](https://linserv1.cims.nyu.edu:50003)
+[Change Username, Email, or Password](https://linserv1.cims.nyu.edu:50003/profile) - Need to be logged in, password changing currently does not work
+[Submit query](https://linserv1.cims.nyu.edu:/50003/dashboard) - Need to be logged in
 
 ## URL for form result
 
-(TODO: if applicable, add link to page that shows results of submitting form)
+[Results of query](https://linserv1.cims.nyu.edu:50003/results/:queryId) - need to be logged in, need a valid queryId either from dashboard query submission or from history page
 
-Results page, and dashboard for login form
-
-URL to github that shows line of code where research topic(s) are used / implemented
+## URL to github that shows line of code where research topic(s) are used / implemented
 
 ---
 
-(TODO: add link to github url that shows line or lines of code that demonstrate in progress work on at least one research topic)
-
-the entirety of the react files in the vite-project/src folder
+[OpenAI API](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-Jsinger03/blob/master/chat.mjs)
+[React](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-Jsinger03/tree/master/vite-project)
 
 ## References
 
-(TODO: if applicable, links to annotated lines of code in github repository that were based off of tutorials / articles / sample projects)
+# Sources/tutorials for React & co, Fetch, OpenAI
+
 [OpenAI Docs](https://platform.openai.com/docs/quickstart)
+[Fetch](https://www.freecodecamp.org/news/how-to-fetch-api-data-in-react/)
+[useEffect](https://www.w3schools.com/react/react_useeffect.asp)
+[useState](https://www.w3schools.com/react/react_usestate.asp)
+[React Router](https://www.w3schools.com/react/react_router.asp)
+[Express put](https://www.geeksforgeeks.org/express-js-app-put-function/)
+
+# My React Files where I used info from the tutorials
+
+[my useEffect](History.jsx)(Results.jsx)(Dashboard.jsx)
+[my useState](Register.jsx)(History.jsx)(Results.jsx)(Dashboard.jsx)(Profile.jsx)
+[OpenAI API](chat.mjs)
+[React Router](app.jsx)
+[Express Put](app.mjs)

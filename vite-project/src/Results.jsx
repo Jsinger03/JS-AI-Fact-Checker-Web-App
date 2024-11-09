@@ -6,8 +6,9 @@ import './Results.css';
 function Results() {
     const { queryId } = useParams();
     const [queryData, setQueryData] = useState(null);
-
+    //https://www.w3schools.com/react/react_useeffect.asp
     useEffect(() => {
+        //https://www.freecodecamp.org/news/how-to-fetch-api-data-in-react/
         const fetchQueryData = async () => {
             try {
                 const response = await fetch(`/api/results/${queryId}`);

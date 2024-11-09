@@ -7,8 +7,9 @@ function Profile() {
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
 
+    //https://www.w3schools.com/react/react_useeffect.asp
     useEffect(() => {
-        // Fetch current user data to pre-fill the form
+        //https://www.freecodecamp.org/news/how-to-fetch-api-data-in-react/
         const fetchUserData = async () => {
             const userId = localStorage.getItem('userId');
             if (!userId) {
@@ -38,6 +39,7 @@ function Profile() {
         }
 
         try {
+            //https://www.freecodecamp.org/news/how-to-fetch-api-data-in-react/
             const response = await fetch(`/api/profile/${userId}`, {
                 method: 'PUT',
                 headers: {
