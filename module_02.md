@@ -16,10 +16,12 @@ In order to see the results form, you must submit a query from the dashboard. Up
 
 ## URL for form
 
-(TODO: add link to a functioning form)
 [Register](https://linserv1.cims.nyu.edu:50003/register) - make account, will be redirected to login upon successful creation
+
 [Login](https://linserv1.cims.nyu.edu:50003)
+
 [Change Username, Email, or Password](https://linserv1.cims.nyu.edu:50003/profile) - Need to be logged in, password changing currently does not work
+
 [Submit query](https://linserv1.cims.nyu.edu:/50003/dashboard) - Need to be logged in
 
 ## URL for form result
