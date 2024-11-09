@@ -35,7 +35,7 @@ In order to see the results form, you must submit a query from the dashboard. Up
 
 ## References
 
-# Sources/tutorials for React & co, Fetch, OpenAI
+### Sources/tutorials for React & co, Fetch, OpenAI
 
 [OpenAI Docs](https://platform.openai.com/docs/quickstart)
 [Fetch](https://www.freecodecamp.org/news/how-to-fetch-api-data-in-react/)
@@ -44,10 +44,16 @@ In order to see the results form, you must submit a query from the dashboard. Up
 [React Router](https://www.w3schools.com/react/react_router.asp)
 [Express put](https://www.geeksforgeeks.org/express-js-app-put-function/)
 
-# My React Files where I used info from the tutorials
+### My React Files where I used info from the tutorials
 
-[my useEffect](History.jsx)(Results.jsx)(Dashboard.jsx)
-[my useState](Register.jsx)(History.jsx)(Results.jsx)(Dashboard.jsx)(Profile.jsx)
+[my useEffect](History.jsx)
+[my useEffect](Results.jsx)
+[my useEffect](Dashboard.jsx)
+[my useState](Register.jsx)
+[my useState](History.jsx)
+[my useState](Results.jsx)
+[my useState](Dashboard.jsx)
+[my useState](Profile.jsx)
 [OpenAI API](chat.mjs)
 [React Router](app.jsx)
 [Express Put](app.mjs)
