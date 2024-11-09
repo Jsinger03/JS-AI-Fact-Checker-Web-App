@@ -6,7 +6,7 @@
 
 ## Special Instructions for Using Form and / or Login
 
-Please register an account, and remember your login information to login in the future. You will be redirected to the login page upon successful account creation.
+Please register an account, and remember your login information to login in the future.
 
 In order to see the results form, you must submit a query from the dashboard. Upon successful analysis by the OpenAI API (please allow a few seconds), you will be redirected to the results page for that query. You may view past queries from your history page, and can click in to see the results page for each query in your history
 
@@ -16,7 +16,7 @@ In order to see the results form, you must submit a query from the dashboard. Up
 
 ## URL for form
 
-[Register](https://linserv1.cims.nyu.edu:50003/register) - make account, will be redirected to login upon successful creation
+[Register](https://linserv1.cims.nyu.edu:50003/register) - make account
 
 [Login](https://linserv1.cims.nyu.edu:50003)
 
