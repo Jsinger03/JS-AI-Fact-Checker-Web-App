@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 
 function Dashboard({ username }) {
+  //https://www.w3schools.com/react/react_usestate.asp
   const [inputType, setInputType] = useState('link');
   const [inputValue, setInputValue] = useState('');
   const navigate = useNavigate();

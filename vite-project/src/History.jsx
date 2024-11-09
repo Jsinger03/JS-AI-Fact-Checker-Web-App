@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import HistoryTable from './HistoryTable';
 
 function History() {
+    //https://www.w3schools.com/react/react_usestate.asp
     const [queries, setQueries] = useState([]);
     //https://www.w3schools.com/react/react_useeffect.asp - reference for useEffect
     useEffect(() => {

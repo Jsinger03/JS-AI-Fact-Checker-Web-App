@@ -5,6 +5,7 @@ import './Results.css';
 
 function Results() {
     const { queryId } = useParams();
+    //https://www.w3schools.com/react/react_usestate.asp
     const [queryData, setQueryData] = useState(null);
     //https://www.w3schools.com/react/react_useeffect.asp
     useEffect(() => {
