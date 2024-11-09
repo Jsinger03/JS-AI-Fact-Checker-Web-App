@@ -17,8 +17,11 @@ In order to see the results form, you must submit a query from the dashboard. Up
 ## URL for form
 
 [Register](https://linserv1.cims.nyu.edu:50003/register) - make account, will be redirected to login upon successful creation
+
 [Login](https://linserv1.cims.nyu.edu:50003)
+
 [Change Username, Email, or Password](https://linserv1.cims.nyu.edu:50003/profile) - Need to be logged in, password changing currently does not work
+
 [Submit query](https://linserv1.cims.nyu.edu:/50003/dashboard) - Need to be logged in
 
 ## URL for form result
@@ -30,6 +33,7 @@ In order to see the results form, you must submit a query from the dashboard. Up
 ---
 
 [OpenAI API](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-Jsinger03/blob/master/chat.mjs)
+
 [React](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-Jsinger03/tree/master/vite-project)
 
 ## References
@@ -37,10 +41,15 @@ In order to see the results form, you must submit a query from the dashboard. Up
 ### Sources/tutorials for React & co, Fetch, OpenAI
 
 [OpenAI Docs](https://platform.openai.com/docs/quickstart)
+
 [Fetch](https://www.freecodecamp.org/news/how-to-fetch-api-data-in-react/)
+
 [useEffect](https://www.w3schools.com/react/react_useeffect.asp)
+
 [useState](https://www.w3schools.com/react/react_usestate.asp)
+
 [React Router](https://www.w3schools.com/react/react_router.asp)
+
 [Express put](https://www.geeksforgeeks.org/express-js-app-put-function/)
 
 ### My React Files where I used info from the tutorials
@@ -48,11 +57,15 @@ In order to see the results form, you must submit a query from the dashboard. Up
 [my useEffect](History.jsx)
 [my useEffect](Results.jsx)
 [my useEffect](Dashboard.jsx)
+
 [my useState](Register.jsx)
 [my useState](History.jsx)
 [my useState](Results.jsx)
 [my useState](Dashboard.jsx)
 [my useState](Profile.jsx)
+
 [OpenAI API](chat.mjs)
+
 [React Router](app.jsx)
+
 [Express Put](app.mjs)
