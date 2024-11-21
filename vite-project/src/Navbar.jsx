@@ -6,7 +6,7 @@ function Navbar() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Implement logout logic here, e.g., clearing tokens, etc.
+    //logout logic
     navigate('/');
   };
 

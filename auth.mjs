@@ -14,7 +14,6 @@ const register = async (req, res) => {
         if (password !== confirmPassword) {
             console.log("PASSWORDS DO NOT MATCH");
             return false;
-            // return res.status(400).json({ message: "Passwords do not match" });
         }
 
         // Check if username or email already exists
@@ -22,7 +21,6 @@ const register = async (req, res) => {
         if (existingUser) {
             console.log("Username or email already exists");
             return false;
-            // return res.status(400).json({ message: "Username or email already exists" });
         }
         const hashedPassword = await bcryptjs.hash(password, salt);
         const confirmedHashedPassword = await bcryptjs.hash(confirmPassword, salt);
