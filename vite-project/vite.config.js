@@ -9,4 +9,11 @@ export default defineConfig({
       '/api': 'http://localhost:3000',
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "src/styles/variables.scss";`
+      },
+    },
+  },
 })
