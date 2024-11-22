@@ -53,7 +53,7 @@ function Dashboard({ username }) {
       <h2>Welcome, {username}</h2>
       <p>This is your dashboard</p>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="radio-group">
           <label>
             <input
               type="radio"

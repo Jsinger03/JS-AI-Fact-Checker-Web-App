@@ -8,6 +8,7 @@ function Navbar() {
   const handleLogout = () => {
     //logout logic
     navigate('/');
+    localStorage.removeItem('userId');
   };
 
   return (
