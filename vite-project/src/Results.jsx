@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from './Navbar';
-import './Results.css';
+import './styles/Results.scss';
 
 function Results() {
     const { queryId } = useParams();

@@ -11,21 +11,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 const API = import.meta.env.VITE_BACKEND_URL;
 
 
-//https://www.freecodecamp.org/news/how-to-fetch-api-data-in-react/
-const apiCall = async () => {
-  try{
-    const response = await fetch(`${API}/api/queries`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ text: inputText }),
-    });
-  } catch (error) {
-    console.error('There was an error fetching the data!', error);
-  }
-}
-
 function App() {
   return (
     <Fragment>
