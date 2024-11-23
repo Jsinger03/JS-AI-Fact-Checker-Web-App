@@ -6,7 +6,7 @@ import Register from './Register';
 import Results from './Results';
 import React, { Fragment, useEffect, useState } from 'react';
 import axios from 'axios';
-import './App.css';
+import './styles/App.scss';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 const API = import.meta.env.VITE_BACKEND_URL;
 

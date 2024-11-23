@@ -4,7 +4,7 @@
 
 [GitHub Repository Link](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-Jsinger03.git)
 
-## Special Instructions for Using Form and / or Login
+## Special Instructions for Using Form 1: login / register
 
 Please register an account, and remember your login information to login in the future.
 
@@ -14,13 +14,21 @@ In order to see the results form, you must submit a query from the dashboard. Up
 
 [Deployed Server Link](https://linserv1.cims.nyu.edu:50003)
 
-## URL for form
+## URL for form 1
 
 [Register](https://linserv1.cims.nyu.edu:50003/register) - make account
 
 [Login](https://linserv1.cims.nyu.edu:50003)
 
 [Change Username, Email, or Password](https://linserv1.cims.nyu.edu:50003/profile) - Need to be logged in, password changing currently does not work
+
+## Special Instructions for Form 2
+
+Select the radio buttons for text and link to choose what kind of submission you would make. If selectign a link, please provide a url for a site that does not require authentication to view the article hosted on it. If the site fails to pull the article, then it will notify you and not submit. If successful you will be taken to the results page for that query. If you select text, then please input the text you would like to check and it will be sent and evaluated.
+
+Due to the behavior of OpenAI API, the checked results are not always consistent, with some occassions resulting in incomplete text or missing recommendations. Hoping to have it fully resolved by milestone 04.
+
+## URL for form 2
 
 [Submit query](https://linserv1.cims.nyu.edu:/50003/dashboard) - Need to be logged in
 
@@ -38,9 +46,11 @@ In order to see the results form, you must submit a query from the dashboard. Up
 
 [Sass](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-Jsinger03/tree/master/vite-project/src/styles)
 
+[Fetch URL's and Process them](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-Jsinger03/blob/master/app.mjs) - Lines 141-173
+
 ## References
 
-### Sources/tutorials for React & co, Fetch, OpenAI
+### Sources/tutorials for React & co, Fetch, OpenAI, and Sass
 
 [OpenAI Docs](https://platform.openai.com/docs/quickstart)
 
@@ -53,6 +63,12 @@ In order to see the results form, you must submit a query from the dashboard. Up
 [React Router](https://www.w3schools.com/react/react_router.asp)
 
 [Express put](https://www.geeksforgeeks.org/express-js-app-put-function/)
+
+[Sass](https://stackoverflow.com/questions/65589265/vite-how-to-use-sass)
+
+[Sass](https://sass-lang.com/)
+
+[Sass](https://www.w3schools.com/sass/sass_intro.asp)
 
 ### My React Files where I used info from the tutorials
 

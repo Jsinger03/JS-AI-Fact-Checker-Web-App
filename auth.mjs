@@ -10,13 +10,13 @@ const register = async (req, res) => {
     try {
         const { username, email, password, confirmPassword } = req.body;
 
-        // Check if passwords match
+        //Check if passwords match
         if (password !== confirmPassword) {
             console.log("PASSWORDS DO NOT MATCH");
             return false;
         }
 
-        // Check if username or email already exists
+        //Check if username or email already exists
         const existingUser = await User.findOne({ $or: [{ username }, { email }] });
         if (existingUser) {
             console.log("Username or email already exists");
@@ -46,7 +46,6 @@ const auth = async (req, res) => {
     }
     return user;
 }
-//const changePassword = async (req, res) => {
 
 
 

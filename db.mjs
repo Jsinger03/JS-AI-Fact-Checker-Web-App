@@ -16,11 +16,16 @@ const QuerySchema = new mongoose.Schema({
     originalText:{ type: String, required: true },
     sourceURL: {type: String, required: false},
     summary:{ type: String },
+    // factCheckResult: [{
+    //   textSegment: String,
+    //   suggestion:  String,
+    //   startIndex:  Number,
+    //   endIndex:    Number,
+    // }],
     factCheckResult: [{
       textSegment: String,
       suggestion:  String,
-      startIndex:  Number,
-      endIndex:    Number,
+      accurate: Boolean,
     }],
     accuracyScore: {type: Number, required: true},
     createdAt:{ type: Date, default: Date.now },

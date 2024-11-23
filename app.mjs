@@ -20,22 +20,12 @@ app.use(cors())//to allow for react axios api handling --> now using fetch, but 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'vite-project/dist')));
-// app.use(session({
-//     secret: 'your-secret-key',
-//     resave: false,
-//     saveUninitialized: true,
-//     cookie: { secure: true }//true since using https
-// }));
+
 app.use((req, res, next) => {
     console.log(req.method, req.path, req.body);
     next();
 })
-// const isAuthenticated = (req, res, next) => {
-//     if (req.session.userId) {
-//         return next();
-//     }
-//     res.status(401).send('Unauthorized');
-// };
+
 //mongoose stuff
 const User = mongoose.model('User');
 const Query = mongoose.model('Query');
@@ -82,9 +72,7 @@ app.post('/api/dashboard', async (req, res) => {
     }
 });
 
-// app.get('/api/history', (req, res) => {
-//     res.json({message:"HIIII"})
-// })
+
 app.get('/api/history/:userId', async (req, res) => {
     try {
         const userId = req.params.userId;
@@ -144,6 +132,46 @@ app.put('/api/profile/:userId', async (req, res) => {
         res.status(500).json({ message: 'Internal server error' });
     }
 });
+
+//handle URL submissions
+import fetch from 'node-fetch';
+import { JSDOM } from 'jsdom';
+import { Readability } from '@mozilla/readability';
+
+app.post('/api/extract', async (req, res) => {
+    const { url } = req.body;
+    if (!url) {
+        return res.status(400).json({ message: 'URL is required' });
+    }
+    try {
+        console.log("trying to fetch url ", url);
+        const response = await fetch(url);
+        if (!response.ok) {
+            console.log("error fetching url ", response.statusText);
+            throw new Error(`Unable to fetch URL: ${response.statusText}`);
+        }
+        console.log("successfully fetched url");
+        const html = await response.text();
+        console.log(html);
+        const dom = new JSDOM(html);
+        const reader = new Readability(dom.window.document);
+        const article = reader.parse();
+        console.log("====================================================================");
+        console.log(article);
+
+        if (!article) {
+            return res.status(404).json({ message: 'Could not extract content from the URL' });
+        }
+
+        // Send the extracted content back to the client
+        const queryId = await saveQuery(article.textContent, req.body.userId);
+        res.json({ content: article.textContent, queryId });
+    } catch (error) {
+        console.error('Error fetching or parsing URL:', error);
+        res.status(500).json({ message: 'Failed to extract content', error: error.message });
+    }
+});
+
 
   // Catch-all handler to serve React's index.html for any other routes
 app.get('*', (req, res) => {

@@ -9,7 +9,31 @@ function Dashboard({ username }) {
   const [inputValue, setInputValue] = useState('');
   const navigate = useNavigate();
   const [userId, setUserId] = useState(null);
+  const [url, setUrl] = useState('');
+  const [extractedText, setExtractedText] = useState('');
 
+  const handleUrlSubmit = async (e) => {
+    e.preventDefault();
+    try {
+        const response = await fetch('/api/extract', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ url: inputValue, userId }),
+        });
+        const data = await response.json();
+        if (response.ok) {
+            setExtractedText(data.content);
+            console.log('Query submitted:', data.queryId);
+            navigate(`/results/${data.queryId}`);
+        } else {
+            console.error('Error extracting text:', data.message);
+            setExtractedText('Failed to extract content.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        setExtractedText('An error occurred while fetching content.');
+    }
+};
   //https://www.w3schools.com/react/react_useeffect.asp
   useEffect(() => {
     const storedUserId = localStorage.getItem('userId');
@@ -19,10 +43,13 @@ function Dashboard({ username }) {
         navigate('/');
     }
 }, [navigate]);
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
     //https://www.freecodecamp.org/news/how-to-fetch-api-data-in-react/
     event.preventDefault();
-    try {
+    if (inputType === 'link') {
+      await handleUrlSubmit(e);
+    } else {
+      try {
         const response = await fetch('/api/dashboard', {
             method: 'POST',
             headers: {
@@ -44,6 +71,7 @@ function Dashboard({ username }) {
       } catch (error) {
           console.error('Error submitting query:', error);
       }
+    }
   };
 
   return (

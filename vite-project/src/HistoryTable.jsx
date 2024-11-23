@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './styles/HistoryTable.scss';
 
 function HistoryTable({ queries }) {
     const truncateText = (text, maxLength = 30) => {
