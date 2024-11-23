@@ -152,12 +152,12 @@ app.post('/api/extract', async (req, res) => {
         }
         console.log("successfully fetched url");
         const html = await response.text();
-        console.log(html);
+        //console.log(html);
         const dom = new JSDOM(html);
         const reader = new Readability(dom.window.document);
         const article = reader.parse();
-        console.log("====================================================================");
-        console.log(article);
+        //console.log("====================================================================");
+        //console.log(article);
 
         if (!article) {
             return res.status(404).json({ message: 'Could not extract content from the URL' });

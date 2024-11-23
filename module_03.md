@@ -24,7 +24,7 @@ In order to see the results form, you must submit a query from the dashboard. Up
 
 ## Special Instructions for Form 2
 
-Select the radio buttons for text and link to choose what kind of submission you would make. If selectign a link, please provide a url for a site that does not require authentication to view the article hosted on it. If the site fails to pull the article, then it will notify you and not submit. If successful you will be taken to the results page for that query. If you select text, then please input the text you would like to check and it will be sent and evaluated.
+Select the radio buttons for text and link to choose what kind of submission you would make. If selectign a link, please provide a url for a site that does not require authentication to view the article hosted on it. If the site fails to pull the article, then it will notify you in the browser console and not submit. If successful you will be taken to the results page for that query. If you select text, then please input the text you would like to check and it will be sent and evaluated.
 
 Due to the behavior of OpenAI API, the checked results are not always consistent, with some occassions resulting in incomplete text or missing recommendations. Hoping to have it fully resolved by milestone 04.
 
