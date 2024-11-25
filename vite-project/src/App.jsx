@@ -5,7 +5,6 @@ import Profile from './Profile';
 import Register from './Register';
 import Results from './Results';
 import React, { Fragment, useEffect, useState } from 'react';
-import axios from 'axios';
 import './styles/App.scss';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 const API = import.meta.env.VITE_BACKEND_URL;
@@ -19,7 +18,7 @@ function App() {
         <Route path="/" element={<Login/>} />
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
-        <Route path="/dashboard" element={<Dashboard username="js"/>} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/history" element={<History/>} />
         <Route path="/profile" element={<Profile/>} />
         <Route path="/results/:queryId" element={<Results />} />

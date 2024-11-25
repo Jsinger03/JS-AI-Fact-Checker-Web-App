@@ -28,6 +28,7 @@ function Register() {
                 console.log('Registration successful:', result.message);
                 // Save userId to local storage
                 localStorage.setItem('userId', result.userId);
+                localStorage.setItem('username', username);
                 // Redirect to dashboard
                 navigate('/dashboard');
             } else {

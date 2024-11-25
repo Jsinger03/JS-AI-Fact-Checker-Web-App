@@ -24,6 +24,8 @@ function Login() {
                 setMessage(result.message);
                 // Store the userId in local storage
                 localStorage.setItem('userId', result.userId);
+                console.log(username);
+                localStorage.setItem('username', username);
                 console.log('Login successful:', result);
                 // Redirect to the dashboard
                 navigate('/dashboard');

@@ -3,12 +3,13 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 
-function Dashboard({ username }) {
+function Dashboard() {
   //https://www.w3schools.com/react/react_usestate.asp
   const [inputType, setInputType] = useState('link');
   const [inputValue, setInputValue] = useState('');
   const navigate = useNavigate();
   const [userId, setUserId] = useState(null);
+  const [username, setUsername] = useState('');
   const [url, setUrl] = useState('');
   const [extractedText, setExtractedText] = useState('');
 
@@ -35,7 +36,7 @@ function Dashboard({ username }) {
     }
 };
   //https://www.w3schools.com/react/react_useeffect.asp
-  useEffect(() => {
+  useEffect(() => {//load userId from local storage, if not found then return user to login page
     const storedUserId = localStorage.getItem('userId');
     if (storedUserId) {
         setUserId(storedUserId);
@@ -43,6 +44,12 @@ function Dashboard({ username }) {
         navigate('/');
     }
 }, [navigate]);
+  useEffect(() => {//load username from local storage, if not found return user to login page
+    const storedUsername = localStorage.getItem('username');
+    if (storedUsername) {
+        setUsername(storedUsername);
+    }
+  }, [navigate]);
   const handleSubmit = async (e) => {
     //https://www.freecodecamp.org/news/how-to-fetch-api-data-in-react/
     event.preventDefault();
@@ -75,8 +82,9 @@ function Dashboard({ username }) {
   };
 
   return (
+    <>
+    <Navbar />
     <div>
-      <Navbar />
       <h1>Dashboard</h1>
       <h2>Welcome, {username}</h2>
       <p>This is your dashboard</p>
@@ -124,6 +132,7 @@ function Dashboard({ username }) {
         </button>
       </form>
     </div>
+    </>
   );
 }
 

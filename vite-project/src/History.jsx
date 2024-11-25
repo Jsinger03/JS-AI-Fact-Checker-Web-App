@@ -39,8 +39,9 @@ function History() {
     };
 
     return (
+        <>
+        <Navbar />
         <div>
-            <Navbar />
             <h1>History</h1>
             <p>This is your history page.</p>
             <form method="get" action="/search">
@@ -49,6 +50,7 @@ function History() {
             </form>
             <HistoryTable queries={queries} />
         </div>
+        </>
     );
 }
 

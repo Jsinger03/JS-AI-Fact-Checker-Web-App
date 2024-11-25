@@ -12,7 +12,7 @@ function Navbar() {
   };
 
   return (
-    <nav style={{ display: 'flex', justifyContent: 'space-around', padding: '10px', background: '#f0f0f0' }}>
+    <nav className="navbar">
       <a href="/dashboard">Home</a>
       <a href="/history">History</a>
       <a href="/profile">Profile</a>
