@@ -80,7 +80,7 @@ Due to the behavior of OpenAI API, the checked results are not always consistent
 [my useState](History.jsx)
 [my useState](Results.jsx)
 [my useState](Dashboard.jsx)
-[my useState](Profile.jsx)
+[my useState](Profile.js)
 
 [OpenAI API](chat.mjs)
 

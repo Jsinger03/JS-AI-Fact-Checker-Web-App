@@ -27,11 +27,26 @@ function History() {
         fetchQueries();
     }, []);
 
+    const handleSearch = async (e) => {
+        e.preventDefault();
+        const userId = localStorage.getItem('userId');
+        const filterText = document.getElementById('filterText').value;
+        const response = await fetch(`/api/search/${userId}?filterText=${filterText}`);
+        console.log(response);
+        const data = await response.json();
+        console.log(data);
+        setQueries(data);
+    };
+
     return (
         <div>
             <Navbar />
             <h1>History</h1>
             <p>This is your history page.</p>
+            <form method="get" action="/search">
+                <input type="text" id="filterText" placeholder="Search your history" />
+                <button type="submit" onClick={handleSearch}>Search</button>
+            </form>
             <HistoryTable queries={queries} />
         </div>
     );

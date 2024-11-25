@@ -133,6 +133,16 @@ app.put('/api/profile/:userId', async (req, res) => {
     }
 });
 
+app.get('/api/search/:userId', async (req, res) => {
+    const filt = req.query.filterText;
+    console.log(filt);
+    let queries = await Query.find({ user: req.params.userId });
+    //console.log(queries);
+    queries = queries.filter(query => query.originalText.toLowerCase().includes(filt.toLowerCase()));
+    console.log(queries);
+    res.json(queries);
+});
+
 //handle URL submissions
 import fetch from 'node-fetch';
 import { JSDOM } from 'jsdom';
