@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import HistoryTable from './HistoryTable';
+import { useNavigate } from 'react-router-dom';
 
 function History() {
     //https://www.w3schools.com/react/react_usestate.asp
     const [queries, setQueries] = useState([]);
+    const navigate = useNavigate();
+    //https://www.w3schools.com/react/react_useeffect.asp
+    useEffect(() => {
+        const storedUserId = localStorage.getItem('userId');
+        if (!storedUserId) {
+            navigate('/');
+        }
+    }, [navigate]);
     //https://www.w3schools.com/react/react_useeffect.asp - reference for useEffect
     useEffect(() => {
         //https://www.freecodecamp.org/news/how-to-fetch-api-data-in-react/
@@ -44,10 +53,12 @@ function History() {
         <div>
             <h1>History</h1>
             <p>This is your history page.</p>
-            <form method="get" action="/search">
-                <input type="text" id="filterText" placeholder="Search your history" />
-                <button type="submit" onClick={handleSearch}>Search</button>
-            </form>
+            <div className="form-container">
+                 <form method="get" action="/search">
+                    <input type="text" id="filterText" placeholder="Search your history" />
+                    <button type="submit" onClick={handleSearch}>Search</button>
+                </form>
+            </div>
             <HistoryTable queries={queries} />
         </div>
         </>

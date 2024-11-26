@@ -88,8 +88,9 @@ function Dashboard() {
       <h1>Dashboard</h1>
       <h2>Welcome, {username}</h2>
       <p>This is your dashboard</p>
-      <form onSubmit={handleSubmit}>
-        <div className="radio-group">
+      <div className="form-container">
+        <form onSubmit={handleSubmit}>
+          <div className="radio-group">
           <label>
             <input
               type="radio"
@@ -129,8 +130,9 @@ function Dashboard() {
 
         <button type="submit" style={{ display: 'block', marginTop: '10px' }}>
           Submit
-        </button>
-      </form>
+          </button>
+          </form>
+      </div>
     </div>
     </>
   );

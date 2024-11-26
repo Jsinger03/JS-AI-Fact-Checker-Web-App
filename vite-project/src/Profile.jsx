@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
+import { useNavigate } from 'react-router-dom';
 
 function Profile() {
     //https://www.w3schools.com/react/react_usestate.asp
@@ -7,6 +8,15 @@ function Profile() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+
+    const navigate = useNavigate();
+    //https://www.w3schools.com/react/react_useeffect.asp
+    useEffect(() => {
+        const storedUserId = localStorage.getItem('userId');
+        if (!storedUserId) {
+            navigate('/');
+        }
+    }, [navigate]);
 
     //https://www.w3schools.com/react/react_useeffect.asp
     useEffect(() => {
@@ -61,8 +71,9 @@ function Profile() {
         <div>
             <Navbar />
             <h1>Profile</h1>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username:</label>
+            <div className="form-container">
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="username">Username:</label>
                 <input
                     type="text"
                     id="username"
@@ -92,8 +103,9 @@ function Profile() {
                     placeholder="new password"
                 />
                 <br />
-                <button type="submit">Save</button>
-            </form>
+                    <button type="submit">Save</button>
+                </form>
+            </div>
             {message && <p>{message}</p>}
         </div>
     );
