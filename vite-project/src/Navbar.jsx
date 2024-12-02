@@ -9,6 +9,7 @@ function Navbar() {
     //logout logic
     navigate('/');
     localStorage.removeItem('userId');
+    localStorage.removeItem('username');
   };
 
   return (

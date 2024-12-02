@@ -43,9 +43,11 @@ function Register() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Please enter a username</label>
-                <input
+            <h1>Register Your Account</h1>
+            <div className="form-container">
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="username">Please enter a username</label>
+                    <input
                     type="text"
                     name="username"
                     placeholder="username"
@@ -78,9 +80,10 @@ function Register() {
                 />
                 <button type="submit">Register</button>
                 <br />
-                <label>Already have an account? <a href="/">Login</a></label>
-            </form>
-            {message && <p>{message}</p>}
+                    <label>Already have an account? <a href="/">Login</a></label>
+                </form>
+                {message && <p>{message}</p>}
+            </div>
         </div>
     );
 }
