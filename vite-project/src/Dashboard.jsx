@@ -52,11 +52,15 @@ function Dashboard() {
   }, [navigate]);
   const handleSubmit = async (e) => {
     //https://www.freecodecamp.org/news/how-to-fetch-api-data-in-react/
-    event.preventDefault();
+    e.preventDefault();
     if (inputType === 'link') {
       await handleUrlSubmit(e);
     } else {
       try {
+        if (inputType === 'text' && inputValue.length > 4000) {
+          alert('Text input exceeds the 4000 character limit.');
+          return;
+        }
         const response = await fetch('/api/dashboard', {
             method: 'POST',
             headers: {
@@ -73,11 +77,13 @@ function Dashboard() {
           console.log('Query submitted:', result.message);
           navigate(`/results/${result.queryId}`);
         } else {
-            console.error('Error submitting query:', result.message);
-        }
-      } catch (error) {
-          console.error('Error submitting query:', error);
+          alert(`An error occurred: ${result.message}`);
+          console.error('Error submitting query:', result.message);
       }
+    } catch (error) {
+      alert('An error occurred while submitting your query.');
+      console.error('Error submitting query:', error);
+  }
     }
   };
 
