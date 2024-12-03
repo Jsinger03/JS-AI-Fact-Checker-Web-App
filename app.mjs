@@ -166,11 +166,9 @@ app.post('/api/extract', async (req, res) => {
         const dom = new JSDOM(html);
         const reader = new Readability(dom.window.document);
         const article = reader.parse();
-        //console.log("====================================================================");
-        //console.log(article);
 
         if (!article) {
-            return res.status(404).json({ message: 'Could not extract content from the URL' });
+            throw new Error('Could not extract content from the URL');
         }
 
         // Send the extracted content back to the client
@@ -178,7 +176,7 @@ app.post('/api/extract', async (req, res) => {
         res.json({ content: article.textContent, queryId });
     } catch (error) {
         console.error('Error fetching or parsing URL:', error);
-        res.status(500).json({ message: 'Failed to extract content', error: error.message });
+        res.status(500).json({ message: error.message || 'Failed to extract content' });
     }
 });
 
