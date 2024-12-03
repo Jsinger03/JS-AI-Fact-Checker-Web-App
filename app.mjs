@@ -3,7 +3,7 @@ import path from 'path'
 import { fileURLToPath } from 'url';
 import mongoose from 'mongoose';
 import './db.mjs';
-import {register, auth} from './auth.mjs';
+import {register, auth, changePassword} from './auth.mjs';
 import './config.mjs';
 import cors from 'cors';
 import session from 'express-session';
@@ -117,8 +117,7 @@ app.put('/api/profile/:userId', async (req, res) => {
         if (username) updateData.username = username;
         if (email) updateData.email = email;
         if (password) {
-            const salt = await bcryptjs.genSalt(10);
-            updateData.password = await bcryptjs.hash(password, salt);
+            updateData.password = await changePassword(password);
         }
 
         const user = await User.findByIdAndUpdate(userId, updateData, { new: true });
