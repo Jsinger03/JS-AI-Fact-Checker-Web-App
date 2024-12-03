@@ -28,10 +28,12 @@ function Dashboard() {
             navigate(`/results/${data.queryId}`);
         } else {
             console.error('Error extracting text:', data.message);
+            alert(`An error occurred: ${data.message}`);
             setExtractedText('Failed to extract content.');
         }
     } catch (error) {
         console.error('Error:', error);
+        alert(`An error occurred: ${error.message}`);
         setExtractedText('An error occurred while fetching content.');
     }
 };
