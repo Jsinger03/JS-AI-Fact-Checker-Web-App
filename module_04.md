@@ -76,6 +76,29 @@ Input is validated and sent to OpenAI, character limit is in place to prevent la
 
 Users may not switch their account username or email to one that is used by another user.
 
+## Link to github line number(s) for schemas (db.js or models folder)
+
+[Database file](db.mjs) - Line 6 and Line 14 mark the start of each Schema
+
+## Description of research topics above with points
+
+(TODO: add description of research topics here, including point values for each, one per line... for example: 2 points - applied and modified "Clean Blog" Bootstrap theme)
+
+- (6 points) Utilized React to serve the frontend of the webapp
+- (2 points) OpenAI API integration to evaluate user inputs and return summary and fact-checked content
+- (2 points) Used Sass to preprocess css and increase modularity of css
+- (5 points) Server-side web scraping with fetch to get the html and Mozilla's Readability library to extract the article content from submitted links to articles
+
+## Links to github line number(s) for research topics described above (one link per line)
+
+[OpenAI API usage](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-Jsinger03/blob/master/chat.mjs)
+
+[React](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-Jsinger03/tree/master/vite-project) - all .jsx files
+
+[Sass](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-Jsinger03/tree/master/vite-project/src/styles)
+
+[Fetch URL's and use Readability to process them](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-Jsinger03/blob/master/app.mjs) - Lines 141-173
+
 ## Attributions
 
 See source code comments, further explanation was given in previous milestones.
