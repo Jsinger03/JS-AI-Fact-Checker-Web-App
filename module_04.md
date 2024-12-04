@@ -42,18 +42,22 @@ Search for a word that appears in one of your past queries to filter by that wor
 
 ## URL for form 3
 
-[Search Queries](https://linserv1.cims.nyu.edu:/50003/history) - Need to be logged in, otherwise no queries will be shown. Need to have queries in history, or none will be found.
+[Search Past Queries](https://linserv1.cims.nyu.edu:/50003/history) - Need to be logged in, otherwise no queries will be shown. Need to have queries in history, or none will be found.
 
 ## URL for form 3 result
 
-[Results of query](https://linserv1.cims.nyu.edu:50003/history) - need to be logged in, same page but with filtered results populating the content of the table.
+[Filtered Queries](https://linserv1.cims.nyu.edu:50003/history) - need to be logged in, same page but with filtered results populating the content of the table.
 
 ## HOF
 
-[Filter] (app.mjs) - line 141
+[Filter] (app.mjs)
+line 141
+
 This is where I use the higher order function filter to separate out user queries so that all that remains are the ones matching the term the user input.
 
-[Map] (HistoryTable.jsx) - line 26
+[Map] (HistoryTable.jsx)
+line 26
+
 This is where I use the higher order function map to transform each query the user has into a table row element for the HistoryTable componennt, and attatch an incremental index to it for better legibility of the table.
 
 ## AJAX & Fetch
