@@ -26,7 +26,7 @@ Julian Singer
 
 Select the radio buttons for text and link to choose what kind of submission you would make. If selectign a link, please provide a url for a site that does not require authentication to view the article hosted on it. If the site fails to pull the article, then it will notify you in the browser console and not submit. If successful you will be taken to the results page for that query. If you select text, then please input the text you would like to check and it will be sent and evaluated. Note: text input is limited to 4000 characters, and links will not send back all text as they often have a greater length than that.
 
-Having recently switched the GPT model to 4o, the results back from OpenAI are more accurate and up to date.mHowever, there are still occassions where ChatGPT does not send back the entirety of the original text as fact-checked. Additionally, there may be a 10-15 second delay between pressing the button and seeing the results, as the program waits for the ChatGPT response.
+Having recently switched the GPT model to 4o, the results back from OpenAI are more accurate and up to date However, there are still occassions where ChatGPT does not send back the entirety of the original text as fact-checked. Additionally, there may be a 10-15 second delay between pressing the button and seeing the results, as the program waits for the ChatGPT response.
 
 ## URL for form 2
 
