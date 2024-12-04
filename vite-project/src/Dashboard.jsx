@@ -52,9 +52,20 @@ function Dashboard() {
         setUsername(storedUsername);
     }
   }, [navigate]);
+  useEffect(() => {//load userId from local storage, if not found return user to login page
+    const storedUserId = localStorage.getItem('userId');
+    if (!storedUserId) {
+        navigate('/');
+    }
+  }, [inputValue, navigate]);
   const handleSubmit = async (e) => {
     //https://www.freecodecamp.org/news/how-to-fetch-api-data-in-react/
     e.preventDefault();
+    if (!userId || !username) {
+      alert('You must be logged in to submit a request.');
+      navigate('/');
+      return;
+    }
     if (inputType === 'link') {
       await handleUrlSubmit(e);
     } else {
