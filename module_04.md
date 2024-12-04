@@ -20,7 +20,7 @@ Julian Singer
 
 [Login](https://linserv1.cims.nyu.edu:50003)
 
-[Change Username, Email, or Password](https://linserv1.cims.nyu.edu:50003/profile) - Need to be logged in, password changing currently does not work
+[Change Username, Email, or Password](https://linserv1.cims.nyu.edu:50003/profile) - Need to be logged in
 
 ## Special Instructions for Form 2
 
@@ -38,7 +38,7 @@ Having recently switched the GPT model to 4o, the results back from OpenAI are m
 
 ## Special Instructions for Form 3
 
-Search for a word that appears in one of your past queries to filter out by that word. All queries containing that word will be left in the table, and words without it will be removed.
+Search for a word that appears in one of your past queries to filter by that word. All queries containing that word will be left in the table, and words without it will be removed.
 
 ## URL for form 3
 
@@ -58,6 +58,8 @@ This is where I use the higher order function map to transform each query the us
 ## AJAX & Fetch
 
 []
+
+<!-- all react files? -->
 
 ## Validation
 
