@@ -51,11 +51,13 @@ Search for a word that appears in one of your past queries to filter by that wor
 ## HOF
 
 [Filter] (app.mjs)
+
 line 141
 
 This is where I use the higher order function filter to separate out user queries so that all that remains are the ones matching the term the user input.
 
 [Map] (HistoryTable.jsx)
+
 line 26
 
 This is where I use the higher order function map to transform each query the user has into a table row element for the HistoryTable componennt, and attatch an incremental index to it for better legibility of the table.
