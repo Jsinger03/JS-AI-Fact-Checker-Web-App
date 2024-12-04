@@ -20,8 +20,6 @@ Julian Singer
 
 [Login](https://linserv1.cims.nyu.edu:50003)
 
-[Change Username, Email, or Password](https://linserv1.cims.nyu.edu:50003/profile) - Need to be logged in.
-
 ## Special Instructions for Form 2
 
 Select the radio buttons for text and link to choose what kind of submission you would make. If selecting a link, please provide a URL for a site that does not require authentication to view the article hosted on it. If the site fails to pull the article, then it will notify you in the browser console and not submit. If successful you will be taken to the results page for that query. If you select text, then please input the text you would like to check and it will be sent and evaluated.
@@ -48,6 +46,14 @@ Search for a word that appears in one of your past queries to filter by that wor
 
 [Filtered Queries](https://linserv1.cims.nyu.edu:50003/history) - need to be logged in, same page but with filtered results populating the content of the table.
 
+## URL for form 4
+
+[Change Username, Email, or Password](https://linserv1.cims.nyu.edu:50003/profile) - Need to be logged in.
+
+## AJAX
+
+[Filter queries](app.mjs) - line 141 (this is also linked in the HOF section)
+
 ## HOF
 
 [Filter](app.mjs) - line 141
@@ -57,12 +63,6 @@ This is where I use the higher order function filter to separate out user querie
 [Map](HistoryTable.jsx) - line 26
 
 This is where I use the higher order function map to transform each query the user has into a table row element for the HistoryTable componennt, and attatch an incremental index to it for better legibility of the table.
-
-## AJAX & Fetch
-
-[]
-
-<!-- all react files? -->
 
 ## Validation
 
@@ -81,8 +81,6 @@ Users may not switch their account username or email to one that is used by anot
 [Database file](db.mjs) - Line 6 and Line 14 mark the start of each Schema
 
 ## Description of research topics above with points
-
-(TODO: add description of research topics here, including point values for each, one per line... for example: 2 points - applied and modified "Clean Blog" Bootstrap theme)
 
 - (6 points) Utilized React to serve the frontend of the webapp
 - (2 points) OpenAI API integration to evaluate user inputs and return summary and fact-checked content
