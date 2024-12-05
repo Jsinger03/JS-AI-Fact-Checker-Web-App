@@ -6,16 +6,15 @@ We've all had times when we had to read long segments of text and understand the
 
 Enter Julian's Maghic 8 Ball Of Knowledge. This webapp will help users interpret large amounts of text and verify the accuracy of that information. This application will utilize the OpenAI API to interpret and summarize long text inputs, and will fact check them before providing the analysis to the user. User's will be able to see their past queries and refer to the fact checking.
 
-
 ## Data Model
 
 The application will store Users and Queries
 
-* Users will have account information and a list of their queries
-* Queries will have the original text, summary, fact-checked text, date of creation, user, and qualitatuve score of accuracy.
-* Queries will optionally have a url if the user chose to fact check an article from the web
+- Users will have account information and a list of their queries
+- Queries will have the original text, summary, fact-checked text, date of creation, user, and qualitatuve score of accuracy.
+- Queries will optionally have a url if the user chose to fact check an article from the web
 
-(__TODO__: sample documents)
+(**TODO**: sample documents)
 
 Example User:
 
@@ -58,7 +57,7 @@ Example Query with user, original text, summary, and fact checking:
 }
 ```
 
-## [Link to Commented First Draft Schema](db.mjs) 
+## [Link to Commented First Draft Schema](db.mjs)
 
 ## Wireframes
 
@@ -99,35 +98,45 @@ Example Query with user, original text, summary, and fact checking:
 
 ## Research Topics
 
-* (6 points) React
-  * I'm going to use React to implement UI that allows for dynamic response to user input
-  * React will serve as the front-end while express handles the back-end API, authentication, and database usage
-  * React Router will allow users to navigate pages without fully reloading them
-* (2 points) OpenAI API Integration
-  * OpenAI's API allows users to make calls to OpenAI LLM models directly from their programs
-  * I am going to use OpenAI's API to handle the summarizing of user input and fact checking said input
-* (2 points) Sass / Tailwind CSS (I'm undecided as to which I want to use)
-  * I am going to use Sass or Tailwind CSS to make the CSS styling of my site more advanced
-  * Leaning towards Tailwind as it will allow me to handle styling within the HTML files 
-* (5 points) Server-side web scraping
-  * In order to allow user's to submit urls for articles to be fact checked, I need to scrape the content
-  * I will use Axios to get the content from the url
-  * I will use readability from Mozilla's Readability library to parse the extracted html and find the article content
-  * I will have to verify user inptu and validate it, as well as handle issues like when the site doesnt allow scraping
-
+- (6 points) React
+  - I'm going to use React to implement UI that allows for dynamic response to user input
+  - React will serve as the front-end while express handles the back-end API, authentication, and database usage
+  - React Router will allow users to navigate pages without fully reloading them
+- (2 points) OpenAI API Integration
+  - OpenAI's API allows users to make calls to OpenAI LLM models directly from their programs
+  - I am going to use OpenAI's API to handle the summarizing of user input and fact checking said input
+- (2 points) Sass
+  - I am going to use Sass to make the CSS styling of my site more advanced
+- (5 points) Server-side web scraping
+  - In order to allow user's to submit urls for articles to be fact checked, I need to scrape the content
+  - I will use Fetch to get the content from the url
+  - I will use readability from Mozilla's Readability library to parse the extracted html and find the article content
+  - I will have to verify user inptu and validate it, as well as handle issues like when the site doesnt allow scraping
 
 15 points out of 10 required points
 
-## [Link to Initial Main Project File](app.mjs) 
-
+## [Link to Initial Main Project File](app.mjs)
 
 ## Annotations / References Used
 
-1. [Sass Guide](https://sass-lang.com/guide/) - (code will be linked if/when implemented)
-2. [React tutorial for beginners](https://www.youtube.com/watch?v=w7ejDZ8SWv8) - (code will be linked if/when implemented)
-3. [Tailwind docs](https://tailwindcss.com/docs) - (code will be linked if/when implemented)
-4. [OpenAI Node API Library](https://github.com/openai/openai-node) - (Code will be linked when implemented)
-5. [OpenAI API Guide](https://platform.openai.com/docs/quickstart) - (Code will be linked when implemented)
-6. [Axios Guide](https://axios-http.com/docs/intro) - (Code will be linked when implemented)
-7. [Axios Crash Course](https://www.youtube.com/watch?v=6LyagkoRWYA) - (Code will be linked when implemented)
-8. [Readability](https://www.npmjs.com/package/@mozilla/readability) - (Code will be linked when implemented)
+see comments in code for where these tutorials and resources were used
+
+1. [OpenAI Docs](https://platform.openai.com/docs/quickstart)
+
+2. [Fetch](https://www.freecodecamp.org/news/how-to-fetch-api-data-in-react/)
+
+3. [useEffect](https://www.w3schools.com/react/react_useeffect.asp)
+
+4. [useState](https://www.w3schools.com/react/react_usestate.asp)
+
+5. [React Router](https://www.w3schools.com/react/react_router.asp)
+
+6. [Express put](https://www.geeksforgeeks.org/express-js-app-put-function/)
+
+7. [Sass](https://stackoverflow.com/questions/65589265/vite-how-to-use-sass)
+
+8. [Sass](https://sass-lang.com/)
+
+9. [Sass](https://www.w3schools.com/sass/sass_intro.asp)
+
+10. [Readability](https://www.npmjs.com/package/@mozilla/readability)

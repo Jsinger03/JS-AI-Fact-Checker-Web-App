@@ -162,6 +162,7 @@ app.post('/api/extract', async (req, res) => {
         console.log("successfully fetched url");
         const html = await response.text();
         //console.log(html);
+        //https://www.npmjs.com/package/@mozilla/readability
         const dom = new JSDOM(html);
         const reader = new Readability(dom.window.document);
         const article = reader.parse();
