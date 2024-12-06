@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -6,7 +5,6 @@ function Navbar() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    //logout logic
     navigate('/');
     localStorage.removeItem('userId');
     localStorage.removeItem('username');

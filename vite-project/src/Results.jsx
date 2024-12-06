@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Navbar from './Navbar';
 import './styles/Results.scss';
 import { useNavigate } from 'react-router-dom';
+import DOMPurify from 'dompurify';
 function Results() {
     const { queryId } = useParams();
     //https://www.w3schools.com/react/react_usestate.asp
@@ -28,20 +29,23 @@ function Results() {
         };
 
         fetchQueryData();
-    }, [queryId]);
+    }, [queryId, navigate]);
 
     const renderFactCheckedText = () => {
         if (!queryData || !queryData.factCheckResult) return null;
 
         let highlightedText = '';
         queryData.factCheckResult.forEach(({ textSegment, suggestion, accurate }) => {
+            const sanitizedSegment = DOMPurify.sanitize(textSegment, { ALLOWED_TAGS: [] });// Disallow all HTML tags
             if (!accurate) {
-                highlightedText += `<span class="inaccuracy" title="${suggestion}">${textSegment}</span> `;
+                highlightedText += `<span class="inaccuracy" title="${suggestion}">${sanitizedSegment}</span> `;
             } else {
-                highlightedText += textSegment + ' ';
+                highlightedText += sanitizedSegment + ' ';
             }
         });
-        return <div dangerouslySetInnerHTML={{ __html: highlightedText }} />;
+        const sanitizedHTML = DOMPurify.sanitize(highlightedText);
+        return <div dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />;
+        // return <div dangerouslySetInnerHTML={{ __html: highlightedText }} />;
     };
 
     if (!queryData) {

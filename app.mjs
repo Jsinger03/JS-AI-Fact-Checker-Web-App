@@ -185,4 +185,5 @@ app.post('/api/extract', async (req, res) => {
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'vite-project/dist', 'index.html'));
   });
+// console.log("gonna try to run server")
 app.listen(process.env.PORT ?? 3000);

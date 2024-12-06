@@ -1,3 +1,5 @@
+# Milestone 04 - Final Project Documentation
+
 ## NetID
 
 JES9815
@@ -52,9 +54,7 @@ Search for a word that appears in one of your past queries to filter by that wor
 
 ## AJAX
 
-[Filter queries](app.mjs) - line 135-143 (this is also linked in the HOF section)
-
-This, and my other React files, do AJAX with the express backend
+Many of my React files do AJAX with the Express backend
 
 ## HOF
 
@@ -77,6 +77,8 @@ User's cannot view eachother's queries. If the requested query has a userId that
 Input is validated and sent to OpenAI, character limit is in place to prevent large queries and to handle when the token limit has been reached.
 
 Users may not switch their account username or email to one that is used by another user.
+
+HTML tags included in text prompts gets escaped and removed before rendering to ensure security
 
 ## Link to github line number(s) for schemas (db.js or models folder)
 
