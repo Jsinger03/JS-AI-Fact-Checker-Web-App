@@ -52,15 +52,17 @@ Search for a word that appears in one of your past queries to filter by that wor
 
 ## AJAX
 
-[Filter queries](app.mjs) - line 141 (this is also linked in the HOF section)
+[Filter queries](app.mjs) - line 135-143 (this is also linked in the HOF section)
+
+This, and my other React files, do AJAX with the express backend
 
 ## HOF
 
-[Filter](app.mjs) - line 141
+[Filter](app.mjs) - line 140
 
 This is where I use the higher order function filter to separate out user queries so that all that remains are the ones matching the term the user input.
 
-[Map](HistoryTable.jsx) - line 26
+[Map](vite-project/src/HistoryTable.jsx) - line 26
 
 This is where I use the higher order function map to transform each query the user has into a table row element for the HistoryTable componennt, and attatch an incremental index to it for better legibility of the table.
 
@@ -95,7 +97,7 @@ Users may not switch their account username or email to one that is used by anot
 
 [Sass](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-Jsinger03/tree/master/vite-project/src/styles)
 
-[Fetch URL's and use Readability to process them](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-Jsinger03/blob/master/app.mjs) - Lines 141-173
+[Server-side web scraping](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-Jsinger03/blob/master/app.mjs) - Lines 141-173
 
 ## Attributions
 
