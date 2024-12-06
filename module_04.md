@@ -93,11 +93,11 @@ Users may not switch their account username or email to one that is used by anot
 
 [OpenAI API usage](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-Jsinger03/blob/master/chat.mjs)
 
-[React](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-Jsinger03/tree/master/vite-project) - all .jsx files
+[React](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-Jsinger03/tree/master/vite-project/src) - all .jsx files
 
 [Sass](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-Jsinger03/tree/master/vite-project/src/styles)
 
-[Server-side web scraping](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-Jsinger03/blob/master/app.mjs) - Lines 141-173
+[Server-side web scraping](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-Jsinger03/blob/master/app.mjs) - Lines 150-181
 
 ## Attributions
 

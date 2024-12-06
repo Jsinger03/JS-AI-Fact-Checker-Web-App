@@ -15,7 +15,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 //middleware
-app.use(cors())//to allow for react axios api handling --> now using fetch, but will use axios later for url submissions
+app.use(cors())
 //cors sets headers appropriately to allow fetch requests from react
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
